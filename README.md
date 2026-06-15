@@ -21,7 +21,7 @@ A production-grade DevSecOps CI/CD pipeline deploying a React.js application on 
 | Orchestration | Kubernetes, Amazon EKS |
 | GitOps | Argo CD |
 | Cloud | AWS (EC2, EKS, VPC) |
-| OS | Ubuntu 26.04 LTS |
+| OS | Ubuntu 24.04 LTS |
 
 ---
 
@@ -57,7 +57,7 @@ A production-grade DevSecOps CI/CD pipeline deploying a React.js application on 
 
 ## 1️⃣ Launch AWS EC2 Instance
 
-- AMI: Ubuntu 26.04 LTS
+- AMI: Ubuntu 24.04 LTS
 - Instance Type: c7i-flex.large
 - Storage: 30 GB
 - Open Security Group ports: 22, 8080, 9000, 443, 80
@@ -68,7 +68,7 @@ A production-grade DevSecOps CI/CD pipeline deploying a React.js application on 
 
 ```bash
 sudo apt update
-sudo apt install -y openjdk-17-jdk
+sudo apt install fontconfig openjdk-21-jre
 java -version
 ```
 
@@ -82,10 +82,11 @@ sudo wget -O /etc/apt/keyrings/jenkins-keyring.asc \
 echo "deb [signed-by=/etc/apt/keyrings/jenkins-keyring.asc]" \
   https://pkg.jenkins.io/debian-stable binary/ | sudo tee \
   /etc/apt/sources.list.d/jenkins.list > /dev/null
+sudo apt update
 sudo apt install jenkins
-systemctl start jenkins
-systemctl enable jenkins
-systemctl status jenkins
+sudo apt start jenkins
+sudo apt enable jenkins
+sudo apt status jenkins
 ```
 
 Get admin password:
