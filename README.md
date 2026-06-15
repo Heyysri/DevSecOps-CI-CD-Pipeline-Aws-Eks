@@ -92,7 +92,7 @@ systemctl status jenkins
 Get admin password:
 
 ```bash
-cat /var/jenkins_home/secrets/initialAdminPassword
+cat /var/lib/jenkins/secrets/initialAdminPassword
 ```
 
 Access Jenkins: `http://<EC2-PUBLIC-IP>:8080`
