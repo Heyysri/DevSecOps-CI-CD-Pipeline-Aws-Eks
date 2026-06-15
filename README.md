@@ -68,7 +68,7 @@ A production-grade DevSecOps CI/CD pipeline deploying a React.js application on 
 
 ```bash
 sudo apt update
-sudo apt install fontconfig openjdk-21-jre
+sudo apt install fontconfig openjdk-21-jre -y
 java -version
 ```
 
@@ -83,7 +83,7 @@ echo "deb [signed-by=/etc/apt/keyrings/jenkins-keyring.asc]" \
   https://pkg.jenkins.io/debian-stable binary/ | sudo tee \
   /etc/apt/sources.list.d/jenkins.list > /dev/null
 sudo apt update
-sudo apt install jenkins
+sudo apt install jenkins -y
 systemctl start jenkins
 systemctl enable jenkins
 systemctl status jenkins
