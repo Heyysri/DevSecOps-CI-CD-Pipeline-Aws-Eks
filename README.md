@@ -1,6 +1,6 @@
-# 🍽️ Zomato Clone — DevSecOps CI/CD Pipeline on AWS EKS
+# DevSecOps CI/CD Pipeline on AWS EKS
 
-A Zomato Clone web application deployed using a fully automated DevSecOps CI/CD pipeline on AWS EKS with GitOps-based continuous delivery using Argo CD.
+A production-grade DevSecOps CI/CD pipeline deploying a React.js application on AWS EKS with GitOps-based continuous delivery via Argo CD — security integrated at every stage.
 
 ---
 
@@ -20,14 +20,14 @@ A Zomato Clone web application deployed using a fully automated DevSecOps CI/CD 
 | Container Registry | Docker Hub |
 | Orchestration | Kubernetes, Amazon EKS |
 | GitOps | Argo CD |
-| Cloud | AWS (EC2, EKS, IAM, VPC) |
+| Cloud | AWS (EC2, EKS, VPC) |
 | OS | Ubuntu 26.04 LTS |
 
 ---
 
 # ✨ Features
 
-- Automated CI/CD pipeline triggered on every code push
+- Automated CI/CD pipeline triggered on every push to **main**
 - Static code analysis with SonarQube quality gate enforcement
 - Container vulnerability scanning with Trivy (filesystem + image)
 - Docker image auto-tagged with Jenkins build number
@@ -174,22 +174,29 @@ sudo apt-get install trivy
 
 ---
 
-## 8️⃣ Clone Repo & Run Pipeline
+## 8️⃣ Clone Repo & Configure Pipeline
 
 ```bash
-git clone https://github.com/Heyysri/Zomato-Clone-DevSecOps-CI-CD-Pipeline.git
+git clone git clone https://github.com/Heyysri/DevSecOps-CI-CD-Pipeline-Aws-Eks.git
 ```
+
+```bash
+⚠️ Before running the pipeline, update the following in your fork:
+
+
+Jenkinsfile → replace Docker-Hub-Username, Git-Username, Git-Email
+k8s/deployment.yml → replace Docker-Hub-Username
+```
+
 
 In Jenkins:
 - New Item → Pipeline
 - Pipeline script from SCM → Git
-- Repo URL: `https://github.com/Heyysri/Zomato-Clone-DevSecOps-CI-CD-Pipeline.git`
+- Repo URL: `https://github.com/Heyysri/DevSecOps-CI-CD-Pipeline-Aws-Eks.git`
 - Branch: `main`
 - Script Path: `Jenkinsfile`
 - Click **Build Now**
-```bash
-# Before Hitting Build Now replace the Docker-Hub-Username, Git-Username & Git-EMail in the Jenkinsfile and also Docker-Hub-Username in k8s/deployment.yml
-```
+
 ### Pipeline Stages
 
 ```
@@ -207,7 +214,8 @@ In Jenkins:
 
 ---
 
-## 9️⃣ Create AWS EKS Cluster through AWS Terminal
+## 9️⃣ Create AWS EKS Cluster 
+Run the following from your EC2 instance or AWS CloudShell:
 
 ```bash
 # Install kubectl
@@ -234,7 +242,7 @@ aws configure
 
 # Create cluster using eksctl
 eksctl create cluster \
-  --name eks-zomato \
+  --name eks-devsecops \
   --region eu-north-1 \
   --version 1.31 \
   --nodegroup-name linux-nodes \
@@ -242,7 +250,7 @@ eksctl create cluster \
   --nodes 2
 
 # Log in to Cluster
-aws eks update-kubeconfig --name eks-zomato
+aws eks update-kubeconfig --name eks-devsecops
 
 ```
 
@@ -280,10 +288,10 @@ Access Argo CD: `http://<ARGOCD-EXTERNAL-IP>`
 
 | Field | Value |
 |-------|-------|
-| App Name | `zomato-clone` |
+| App Name | `devsecops-app` |
 | Project | `default` |
 | Sync Policy | Automatic |
-| Repo URL | `https://github.com/Heyysri/Zomato-Clone-DevSecOps-CI-CD-Pipeline.git` |
+| Repo URL | `https://github.com/Heyysri/DevSecOps-CI-CD-Pipeline-Aws-Eks.git` |
 | Path | `k8s` |
 | Cluster | `https://kubernetes.default.svc` |
 | Namespace | `default` |
@@ -351,8 +359,10 @@ Zomato-Clone-DevSecOps-CI-CD-Pipeline/
 - Configure Terraform for full infrastructure provisioning
 - Enable HTTPS using AWS ACM + Load Balancer
 - Add email/Slack notifications on pipeline failure
-- Implement Blue-Green deployment strategy
+- Implement Blue-Green or Canary deployment strategy
 - Add Kubernetes HPA for auto-scaling
+- Integrate OWASP Dependency Check for SCA
+
 
 ---
 
@@ -368,10 +378,9 @@ Zomato-Clone-DevSecOps-CI-CD-Pipeline/
 
 # ⭐ Project Highlights
 
-- End-to-end DevSecOps CI/CD pipeline
-- Security-first approach with SonarQube + Trivy
-- GitOps deployment via Argo CD
-- AWS EKS container orchestration
-- Docker image versioning with build tags
-- Kubernetes LoadBalancer service
-- Production-style cloud deployment
+- End-to-end DevSecOps CI/CD pipeline from code push to production
+- Security-first approach with SonarQube SAST + Trivy SCA/image scan at every build
+- GitOps delivery via Argo CD - the cluster always matches the repo
+- AWS EKS for production-grade Kubernetes orchestration
+- Docker image versioning with Jenkins build tags
+- Kubernetes LoadBalancer service for public app access
