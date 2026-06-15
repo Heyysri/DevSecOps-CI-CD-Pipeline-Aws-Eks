@@ -313,7 +313,7 @@ Access app: `http://<EXTERNAL-IP>` ✅
 ![Ec2 Instance](screenshots/Ec2-Instance.png)
 
 ## Security Group
-![Security-Group](screenshots/security-group.png)
+![Security-Group](screenshots/Security-group.png)
 
 ## Jenkins Pipeline Success
 ![Pipeline Success](screenshots/Pipeline-success.png)
