@@ -181,8 +181,7 @@ git clone git clone https://github.com/Heyysri/DevSecOps-CI-CD-Pipeline-Aws-Eks.
 ```
 
 ```bash
-⚠️ Before running the pipeline, update the following in your fork:
-
+⚠️ Before running the pipeline, update the following:
 
 Jenkinsfile → replace Docker-Hub-Username, Git-Username, Git-Email
 k8s/deployment.yml → replace Docker-Hub-Username
