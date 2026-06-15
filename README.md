@@ -84,9 +84,9 @@ echo "deb [signed-by=/etc/apt/keyrings/jenkins-keyring.asc]" \
   /etc/apt/sources.list.d/jenkins.list > /dev/null
 sudo apt update
 sudo apt install jenkins
-sudo apt start jenkins
-sudo apt enable jenkins
-sudo apt status jenkins
+systemctl start jenkins
+systemctl enable jenkins
+systemctl status jenkins
 ```
 
 Get admin password:
