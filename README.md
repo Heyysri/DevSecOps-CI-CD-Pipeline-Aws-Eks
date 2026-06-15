@@ -64,7 +64,7 @@ A production-grade DevSecOps CI/CD pipeline deploying a React.js application on 
 
 ---
 
-## 2️⃣ Install Java 17
+## 2️⃣ Install Java 21
 
 ```bash
 sudo apt update
