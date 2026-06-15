@@ -21,7 +21,7 @@ A production-grade DevSecOps CI/CD pipeline deploying a React.js application on 
 | Orchestration | Kubernetes, Amazon EKS |
 | GitOps | Argo CD |
 | Cloud | AWS (EC2, EKS, VPC) |
-| OS | Ubuntu 24.04 LTS |
+| OS | Ubuntu Server Pro 24.04 LTS (HVM) |
 
 ---
 
@@ -57,7 +57,7 @@ A production-grade DevSecOps CI/CD pipeline deploying a React.js application on 
 
 ## 1️⃣ Launch AWS EC2 Instance
 
-- AMI: Ubuntu 24.04 LTS
+- AMI: Ubuntu Server Pro 24.04 LTS (HVM)
 - Instance Type: c7i-flex.large
 - Storage: 30 GB
 - Open Security Group ports: 22, 8080, 9000, 443, 80
