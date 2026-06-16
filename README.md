@@ -243,7 +243,7 @@ aws configure
 # Create cluster using eksctl
 eksctl create cluster \
   --name eks-devsecops \
-  --region eu-north-1 \
+  --region ap-south-1 \
   --version 1.31 \
   --nodegroup-name linux-nodes \
   --node-type c7i-flex.large  \
