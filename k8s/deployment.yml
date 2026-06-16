@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: ci-cd
+  name: CI-CD-Pipeline
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: ci-cd
+      app: CI-CD-Pipeline
   template:
     metadata:
       labels:
-        app: ci-cd
+        app: CI-CD-Pipeline
     spec:
       containers:
-      - name: ci-cd
-        image: <DOCKER-HUB-USERNAME>/ci-cd:1
+      - name: CI-CD-Pipeline
+        image: <DOCKER-HUB-USERNAME>/CI-CD-Pipeline:1
         ports:
         - containerPort: 3000
