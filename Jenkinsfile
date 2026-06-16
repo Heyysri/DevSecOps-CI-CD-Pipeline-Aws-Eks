@@ -8,7 +8,7 @@ pipeline {
 
     environment {
         SCANNER_HOME          = tool 'sonar-scanner'
-        DOCKER_IMAGE          = 'CI-CD-Pipeline'
+        DOCKER_IMAGE          = 'ci-cd-pipeline'
         DOCKER_REGISTRY       = '<DOCKER-HUB-USERNAME>'
         DOCKER_CREDENTIALS_ID = 'docker-cred'
         MANIFEST_FILE         = 'k8s/deployment.yml'
