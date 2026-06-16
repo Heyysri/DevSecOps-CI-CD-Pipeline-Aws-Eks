@@ -8,11 +8,11 @@ pipeline {
 
     environment {
         SCANNER_HOME          = tool 'sonar-scanner'
-        DOCKER_IMAGE          = 'zomato-clone'
+        DOCKER_IMAGE          = 'CI-CD-Pipeline'
         DOCKER_REGISTRY       = '<DOCKER-HUB-USERNAME>'
         DOCKER_CREDENTIALS_ID = 'docker-cred'
         MANIFEST_FILE         = 'k8s/deployment.yml'
-        GIT_REPO_NAME         = 'Zomato-Clone'
+        GIT_REPO_NAME         = 'DevSecOps-CI-CD-Pipeline-Aws-Eks'
         GIT_USER_NAME         = '<GIT-USERNAME>'
         GIT_EMAIL             = 'GIT-EMAIL'
     }
@@ -35,8 +35,8 @@ pipeline {
                 withSonarQubeEnv('sonar-server') {
                     sh """
                         ${SCANNER_HOME}/bin/sonar-scanner \
-                        -Dsonar.projectName=Zomato-Clone \
-                        -Dsonar.projectKey=Zomato-Clone
+                        -Dsonar.projectName=DevSecOps-CI-CD-Pipeline-Aws-Eks \
+                        -Dsonar.projectKey=DevSecOps-CI-CD-Pipeline-Aws-Eks
                     """
                 }
             }
