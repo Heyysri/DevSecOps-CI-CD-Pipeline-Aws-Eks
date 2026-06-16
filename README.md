@@ -178,7 +178,7 @@ sudo apt-get install trivy
 ## 8️⃣ Clone Repo & Configure Pipeline
 
 ```bash
-git clone git clone https://github.com/Heyysri/DevSecOps-CI-CD-Pipeline-Aws-Eks.git
+git clone https://github.com/Heyysri/DevSecOps-CI-CD-Pipeline-Aws-Eks.git
 ```
 
 ```bash
