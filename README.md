@@ -254,6 +254,11 @@ eksctl create cluster \
 # Log in to Cluster
 aws eks update-kubeconfig --name eks-devsecops
 
+```bash
+# Delete EKS Cluster
+eksctl delete cluster --name eks-devsecops --region ap-south-1
+```
+
 ```
 
 ---
