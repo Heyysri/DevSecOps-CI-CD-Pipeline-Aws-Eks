@@ -200,16 +200,18 @@ In Jenkins:
 ### Pipeline Stages
 
 ```
-✅ Clean Workspace
-✅ Checkout Code
-✅ SonarQube Analysis
-✅ Quality Gate
-✅ Install Dependencies
-✅ Trivy File Scan
-✅ Build Docker Image
-✅ Trivy Image Scan
-✅ Push Docker Image
-✅ Update K8s Manifest
+✅Declarative: Tool Install
+✅Clean Workspace
+✅Checkout Code
+✅SonarQube Analysis
+✅Quality Gate
+✅Install Dependencies
+✅Trivy File Scan
+✅Build Docker Image
+✅Trivy Image Scan
+✅Push Docker Image
+✅Update K8s Manifest
+✅Declarative: Post Actions
 ```
 
 ---
@@ -342,6 +344,7 @@ Zomato-Clone-DevSecOps-CI-CD-Pipeline/
 ├── src/
 ├── public/
 ├── k8s/
+├── screenshots/
 ├── Dockerfile
 ├── Jenkinsfile
 ├── sonar-project.properties
