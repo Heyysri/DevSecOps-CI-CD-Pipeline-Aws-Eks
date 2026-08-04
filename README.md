@@ -342,8 +342,7 @@ Access app: `http://<EXTERNAL-IP>` ✅
 
 # 📂 Project Structure
 
-```
-Zomato-Clone-DevSecOps-CI-CD-Pipeline/
+```DevSecOps-CI-CD-Pipeline-Aws-Eks/
 ├── src/
 ├── public/
 ├── k8s/
