@@ -342,7 +342,7 @@ Access app: `http://<EXTERNAL-IP>` ✅
 
 # 📂 Project Structure
 
-```DevSecOps-CI-CD-Pipeline-Aws-Eks/
+DevSecOps-CI-CD-Pipeline-Aws-Eks/
 ├── src/
 ├── public/
 ├── k8s/
