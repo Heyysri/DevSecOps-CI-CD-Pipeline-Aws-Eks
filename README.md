@@ -385,7 +385,6 @@ DevSecOps-CI-CD-Pipeline-Aws-Eks/
 
 ---
 
-# ⭐ Project Highlights
 
 # ⭐ Project Highlights
 
