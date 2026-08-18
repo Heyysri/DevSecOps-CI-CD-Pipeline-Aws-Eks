@@ -104,7 +104,7 @@ export default function App() {
       <section className="hero">
         <div className="hero-grid-bg" />
         <div className="hero-content">
-          <div className="hero-badge">AWS EKS · GitOps · Zero Downtime</div>
+          <div className="hero-badge">AWS EKS · GitOps · Automated Delivery</div>
           <h1 className="hero-title">
             Automated
             <br />
@@ -128,8 +128,8 @@ export default function App() {
             </div>
             <div className="stat-divider" />
             <div className="stat">
-              <span className="stat-num">0</span>
-              <span className="stat-label">Downtime Deploys</span>
+              <span className="stat-num">2</span>
+              <span className="stat-label">EKS Replicas</span>
             </div>
             <div className="stat-divider" />
             <div className="stat">
@@ -185,10 +185,10 @@ export default function App() {
           <div className="section-eyebrow">About This Project</div>
           <h2 className="section-title">End-to-End DevSecOps</h2>
           <p className="about-body">
-            This project demonstrates a production-grade DevSecOps CI/CD pipeline on AWS EKS —
-            integrating security at every stage of the delivery lifecycle. From static code analysis 
-            and vulnerability scanning to GitOps-based deployment and zero-downtime rollouts.
-          </p>
+            This project demonstrates an end-to-end DevSecOps CI/CD pipeline on AWS EKS —
+  integrating security throughout the delivery lifecycle. From static code analysis
+  and vulnerability scanning to GitOps-based deployment and automated Kubernetes
+  rollouts.
           <div className="about-links">
             <a
               href="https://github.com/Heyysri/DevSecOps-CI-CD-Pipeline-Aws-Eks"
