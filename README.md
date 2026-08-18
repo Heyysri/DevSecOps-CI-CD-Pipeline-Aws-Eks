@@ -1,7 +1,6 @@
 # DevSecOps CI/CD Pipeline on AWS EKS
 
-A production-grade DevSecOps CI/CD pipeline deploying a React.js application on AWS EKS with GitOps-based continuous delivery via Argo CD — security integrated at every stage.
-
+An end-to-end DevSecOps CI/CD pipeline for deploying a React.js application on Amazon EKS, integrating Jenkins, SonarQube, Trivy, Docker, and Argo CD for automated build, security scanning, containerization, and GitOps-based continuous delivery.
 ---
 
 # 🏗️ Architecture & Project Structure
@@ -28,12 +27,15 @@ A production-grade DevSecOps CI/CD pipeline deploying a React.js application on 
 # ✨ Features
 
 - Automated CI/CD pipeline triggered on every push to **main**
-- Static code analysis with SonarQube quality gate enforcement
-- Container vulnerability scanning with Trivy (filesystem + image)
-- Docker image auto-tagged with Jenkins build number
-- GitOps-based deployment — Argo CD auto-syncs on manifest update
-- Zero-downtime deployments on AWS EKS
-- Kubernetes LoadBalancer service for public app access
+- Static code analysis with SonarQube
+- SonarQube Quality Gate integrated into the Jenkins pipeline
+- Trivy filesystem and Docker image vulnerability scanning
+- Docker image automatically tagged with the Jenkins build number
+- Docker image pushed to Docker Hub
+- GitOps-based deployment using Argo CD
+- Kubernetes deployment on Amazon EKS with two replicas
+- Kubernetes LoadBalancer service for public application access
+- Automated Kubernetes manifest update with the new Docker image tag
 
 ---
 
@@ -41,7 +43,7 @@ A production-grade DevSecOps CI/CD pipeline deploying a React.js application on 
 
 | SG Name | Inbound Rules |
 |---------|--------------|
-| Boom | Port 22 (SSH), Port 8080 (Jenkins), Port 9000 (SonarQube), Port 443 (HTTPS), Port 80 (HTTP) |
+| Boom | Port 22 (SSH), Port 8080 (Jenkins), Port 9000 (SonarQube), Port 80 (HTTP), Port 443 (HTTPS) |
 
 ---
 
@@ -206,11 +208,11 @@ In Jenkins:
 ✅SonarQube Analysis
 ✅Quality Gate
 ✅Install Dependencies
-✅Trivy File Scan
+✅Trivy Filesystem Scan
 ✅Build Docker Image
-✅Trivy Image Scan
+✅Trivy Docker Image Scan
 ✅Push Docker Image
-✅Update K8s Manifest
+✅Update Kubernetes Manifest
 ✅Declarative: Post Actions
 ```
 
@@ -384,9 +386,13 @@ DevSecOps-CI-CD-Pipeline-Aws-Eks/
 
 # ⭐ Project Highlights
 
-- End-to-end DevSecOps CI/CD pipeline from code push to production
-- Security-first approach with SonarQube SAST + Trivy SCA/image scan at every build
-- GitOps delivery via Argo CD - the cluster always matches the repo
-- AWS EKS for production-grade Kubernetes orchestration
-- Docker image versioning with Jenkins build tags
-- Kubernetes LoadBalancer service for public app access
+# ⭐ Project Highlights
+
+- End-to-end DevSecOps CI/CD workflow from source code to Kubernetes deployment
+- Automated code quality analysis using SonarQube
+- Security scanning using Trivy for filesystem and Docker image vulnerabilities
+- GitOps-based continuous delivery using Argo CD
+- Application deployed on Amazon EKS using Kubernetes Deployments and LoadBalancer service
+- Docker image versioning using Jenkins build numbers
+- Automated Kubernetes manifest updates to trigger Argo CD synchronization
+- Integrated AWS, Jenkins, Docker, Kubernetes, SonarQube, Trivy, and Argo CD workflow
